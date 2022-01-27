@@ -11,16 +11,16 @@ import lombok.NoArgsConstructor;
 
 /**
  * DAO for Admin of hospital
- * @author Manoj
  *
+ * @author Manoj
  */
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 public class Admin {
-	@Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private String username;
