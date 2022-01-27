@@ -30,7 +30,6 @@ public class HospitalController {
     public String viewHomePage(Model model) {
         List<Admin> adminList = adminService.getAllAdmins();
         model.addAttribute("adminList", adminList);
-        System.out.print("Get /");
         return "index";
     }
  
