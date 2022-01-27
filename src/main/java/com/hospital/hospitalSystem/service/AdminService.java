@@ -9,6 +9,11 @@ import org.springframework.stereotype.Service;
 import com.hospital.hospitalSystem.domain.Admin;
 import com.hospital.hospitalSystem.repository.AdminRepository;
 
+/**
+ * contains service operations of admin related functionalities
+ * @author Manoj
+ *
+ */
 @Service
 public class AdminService {
 	
