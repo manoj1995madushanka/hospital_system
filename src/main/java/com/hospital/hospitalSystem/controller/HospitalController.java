@@ -29,8 +29,8 @@ public class HospitalController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
     public String viewHomePage(Model model) {
         List<Admin> adminList = adminService.getAllAdmins();
-        model.addAttribute("liststudent", adminList);
-        System.out.print("Get / ");
+        model.addAttribute("adminList", adminList);
+        System.out.print("Get /");
         return "index";
     }
  
