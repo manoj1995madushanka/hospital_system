@@ -1,14 +1,12 @@
 package com.hospital.hospitalSystem.repository;
 
+import com.hospital.hospitalSystem.domain.Patient;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.hospital.hospitalSystem.domain.Admin;
-
 /**
- * repository for do admin database operations
+ * repository for do patient database operations
  * */
 @Repository
-public interface AdminRepository extends JpaRepository<Admin,Integer> {
-
+public interface PatientRepository extends JpaRepository<Patient,Integer> {
 }
