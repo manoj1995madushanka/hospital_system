@@ -11,31 +11,31 @@ import com.hospital.hospitalSystem.repository.AdminRepository;
 
 /**
  * contains service operations of admin related functionalities
- * @author Manoj
  *
+ * @author Manoj
  */
 @Service
 public class AdminService {
-	
-	@Autowired
-	private AdminRepository adminRepository;
 
-	public List<Admin> getAllAdmins() {
-		return adminRepository.findAll();
-	}
+    @Autowired
+    private AdminRepository adminRepository;
 
-	public void createAdmin(Admin admin) {
-		adminRepository.save(admin);
-		
-	}
+    public List<Admin> getAllAdmins() {
+        return adminRepository.findAll();
+    }
 
-	public Admin getAdminById(int id) {
-		Optional<Admin> admin =  adminRepository.findById(id);
-		return admin.isPresent()? admin.get():null;
-	}
+    public void createAdmin(Admin admin) {
+        adminRepository.save(admin);
 
-	public void deleteAdminById(int id) {
-		adminRepository.deleteById(id);
-	}
+    }
+
+    public Admin getAdminById(int id) {
+        Optional<Admin> admin = adminRepository.findById(id);
+        return admin.isPresent() ? admin.get() : null;
+    }
+
+    public void deleteAdminById(int id) {
+        adminRepository.deleteById(id);
+    }
 
 }
