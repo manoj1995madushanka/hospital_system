@@ -1,5 +1,6 @@
 package com.hospital.hospitalSystem.service;
 
+import com.hospital.hospitalSystem.domain.Patient;
 import com.hospital.hospitalSystem.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,4 +14,7 @@ import org.springframework.stereotype.Service;
 public class PatientService {
     @Autowired
     private PatientRepository patientRepository;
+
+    public void createPatient(Patient patient) {
+    }
 }

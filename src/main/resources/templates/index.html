@@ -41,7 +41,7 @@
                         <td th:text="${admin.email}">Email</td>
                         <td th:text="${admin.phone}">Phone</td>
                         <td>
-                            <a th:href="@{'/edit/' + ${admin.id}}">Edit</a>
+                            <a th:href="@{'/edit/' + ${admin.id}}" methods="PUT">Edit</a>
                         </td>
                         <td>
                             <a th:href="@{'/delete/' + ${admin.id}}">Delete</a>

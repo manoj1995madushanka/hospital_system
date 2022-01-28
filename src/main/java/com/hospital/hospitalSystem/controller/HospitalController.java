@@ -2,6 +2,10 @@ package com.hospital.hospitalSystem.controller;
 
 import java.util.List;
 
+import com.hospital.hospitalSystem.domain.Patient;
+import com.hospital.hospitalSystem.service.PatientDiagnosisDataService;
+import com.hospital.hospitalSystem.service.PatientService;
+import com.hospital.hospitalSystem.service.PhysicianService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +29,12 @@ public class HospitalController {
 	
 	@Autowired
 	private AdminService adminService;
+	@Autowired
+    private PatientDiagnosisDataService patientDiagnosisDataService;
+	@Autowired
+    private PatientService patientService;
+	@Autowired
+    private PhysicianService physicianService;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
     public String viewHomePage(Model model) {
@@ -37,27 +47,52 @@ public class HospitalController {
     @RequestMapping(value = "/newAdmin", method = RequestMethod.GET)
     public String add(Model model) {
         model.addAttribute("admin", new Admin());
-        return "newAdmin";
+        return "createAdmin";
     }
  
-    @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String createAdmin(@ModelAttribute("student") Admin std) {
-    	adminService.createAdmin(std);
+    @RequestMapping(value = "/createAdmin", method = RequestMethod.POST)
+    public String createAdmin(@ModelAttribute("admin") Admin admin) {
+    	adminService.createAdmin(admin);
         return "redirect:/";
     }
  
-    @RequestMapping(value = "/edit/{id}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/edit/{id}")
     public ModelAndView showEditAdminPage(@PathVariable(name = "id") int id) {
-        ModelAndView mav = new ModelAndView("newAdmin");
-        Admin std = adminService.getAdminById(id);
-        mav.addObject("student", std);
+        ModelAndView mav = new ModelAndView("createAdmin");
+        Admin admin = adminService.getAdminById(id);
+        mav.addObject("admin", admin);
         return mav;
         
     }
     
-    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value = "/delete/{id}")
     public String deleteAdminById(@PathVariable(name = "id") int id) {
     	adminService.deleteAdminById(id);
         return "redirect:/";
+    }
+
+
+    /**
+    *
+    * patient operations
+    *
+    * */
+
+    /*
+    * save new patient details
+    * */
+    @RequestMapping(value = "/createPatient", method = RequestMethod.POST)
+    public String createPatient(@ModelAttribute("patient") Patient patient) {
+        patientService.createPatient(patient);
+        return "redirect:/";
+    }
+
+    @RequestMapping(value = "/editPatient/{id}", method = RequestMethod.PUT)
+    public ModelAndView showEditPatientPage(@PathVariable(name = "id") int id) {
+        ModelAndView mav = new ModelAndView("newAdmin");
+        Admin std = adminService.getAdminById(id);
+        mav.addObject("student", std);
+        return mav;
+
     }
 }
