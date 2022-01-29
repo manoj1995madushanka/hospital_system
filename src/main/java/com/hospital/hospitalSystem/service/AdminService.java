@@ -1,41 +1,16 @@
 package com.hospital.hospitalSystem.service;
 
-import java.util.List;
-import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.hospital.hospitalSystem.domain.Admin;
-import com.hospital.hospitalSystem.repository.AdminRepository;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
-/**
- * contains service operations of admin related functionalities
- *
- * @author Manoj
- */
-@Service
-public class AdminService {
+import java.util.List;
 
-    @Autowired
-    private AdminRepository adminRepository;
+public interface AdminService extends UserDetailsService {
+    Admin createAdmin(Admin admin);
 
-    public List<Admin> getAllAdmins() {
-        return adminRepository.findAll();
-    }
+    List<Admin> getAllAdmins();
 
-    public void createAdmin(Admin admin) {
-        adminRepository.save(admin);
+    Admin getAdminById(int id);
 
-    }
-
-    public Admin getAdminById(int id) {
-        Optional<Admin> admin = adminRepository.findById(id);
-        return admin.isPresent() ? admin.get() : null;
-    }
-
-    public void deleteAdminById(int id) {
-        adminRepository.deleteById(id);
-    }
-
+    void deleteAdminById(int id);
 }

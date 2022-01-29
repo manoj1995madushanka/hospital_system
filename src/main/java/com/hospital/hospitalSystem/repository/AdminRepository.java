@@ -11,4 +11,5 @@ import com.hospital.hospitalSystem.domain.Admin;
 @Repository
 public interface AdminRepository extends JpaRepository<Admin,Integer> {
 
+    Admin findByUsername(String username);
 }

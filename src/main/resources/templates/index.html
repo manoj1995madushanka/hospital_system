@@ -1,64 +1,46 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
-
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css"/>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <meta charset="ISO-8859-1">
+    <title>Hospital App</title>
+
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+
 </head>
 <body>
-<div>
-    <h2>Hospital Management System</h2>
-    <tr>
-        <div align="left">
-            <h3><a th:href="@{'/newAdmin'}">Add New Admin</a></h3>
+<!-- create navigation bar ( header) -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span> <span
+                    class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" th:href="@{/}">Registration and
+                Login Module</a>
         </div>
-
-    </tr>
-    <tr>
-
-        <div class="col-sm-5" align="center">
-            <div class="panel-body" align="center">
-                <table class="table">
-                    <thead class="thead-dark">
-                    <tr>
-                        <th>Admin ID</th>
-                        <th>Name</th>
-                        <th>Username</th>
-                        <th>Password</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                         <th>Edit</th>
-                        <th>Delete</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr th:each="admin : ${adminList}">
-                        <td th:text="${admin.id}">Admin ID</td>
-                        <td th:text="${admin.name}">Name</td>
-                        <td th:text="${admin.username}">Username</td>
-                        <td th:text="${admin.password}">Password</td>
-                        <td th:text="${admin.email}">Email</td>
-                        <td th:text="${admin.phone}">Phone</td>
-                        <td>
-                            <a th:href="@{'/edit/' + ${admin.id}}" methods="PUT">Edit</a>
-                        </td>
-                        <td>
-                            <a th:href="@{'/delete/' + ${admin.id}}">Delete</a>
-                        </td>
-                    </tr>
-
-                    </tbody>
-                </table>
-
-            </div>
-
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+            </ul>
         </div>
+    </div>
+</nav>
 
-    </tr>
+<br>
+<br>
 
-    </tbody>
-    </table>
+<div class="container">
+    <h1>Registration and Login with Spring Boot, Spring Security,
+        Thymeleaf, Hibernate and MySQL</h1>
+    Welcome <span sec:authentication="principal.username"> User</span>
 </div>
 </body>
 </html>
