@@ -27,9 +27,27 @@ public class PhysicianServiceImpl implements PhysicianService {
 
     @Override
     public List<Physician> searchPhysicians(Physician searchObject) {
+
+        fixSearchParams(searchObject);
+
         Optional<List<Physician>> optionalPhysicians = physicianRepository.searchPhysicians(searchObject.getDepartment(),
                 searchObject.getState(), searchObject.getInsurancePlan());
 
         return optionalPhysicians.isPresent() ? optionalPhysicians.get() : Collections.emptyList();
+    }
+
+    private void fixSearchParams(Physician searchObject) {
+        if (searchObject.getDepartment() != null && searchObject.getDepartment().isEmpty())
+        {
+            searchObject.setDepartment(null);
+        }
+        if (searchObject.getState() != null && searchObject.getState().isEmpty())
+        {
+            searchObject.setState(null);
+        }
+        if (searchObject.getInsurancePlan() != null && searchObject.getInsurancePlan().isEmpty())
+        {
+            searchObject.setInsurancePlan(null);
+        }
     }
 }

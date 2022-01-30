@@ -13,14 +13,16 @@
 
     <h1>Search Physicians</h1>
     <br/>
-    <div class="col-sm-4">
+    <div class="container">
 
         <form action="#" th:action="@{/searchPhysicians}" th:object="${physician}" method="post">
             <div alight="left">
                 <tr>
-                    <label class="form-label">Physician ID</label>
                     <td>
-                        <input type="text" th:field="*{id}" class="form-control" placeholder="Physician ID"/>
+                        <input type="text" th:field="*{department}" class="form-control" placeholder="Department"/>
+                        <input type="text" th:field="*{state}" class="form-control" placeholder="State"/>
+                        <input type="text" th:field="*{insurancePlan}" class="form-control"
+                               placeholder="Insurance Plan"/>
                     </td>
                 </tr>
             </div>
@@ -32,40 +34,36 @@
                 </td>
             </tr>
 
+            <br>
+            <br>
 
             <!--table that shows physician search results-->
             <tr>
-                <div class="col-sm-5" align="center">
+                <div class="container" align="center">
                     <div class="panel-body" align="center">
                         <table class="table">
                             <thead class="thead-dark">
                             <tr>
-                                <!--<th>Admin ID</th>-->
+                                <th>Physician ID</th>
                                 <th>Name</th>
-                                <!--<th>Username</th>
-                                <th>Password</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Edit</th>
-                                <th>Delete</th>-->
+                                <th>Department</th>
+                                <th>Edu. Qualification</th>
+                                <th>Experience/yr</th>
+                                <th>State</th>
+                                <th>Insurance Plan</th>
                             </tr>
                             </thead>
+
                             <tbody>
                             <tr th:each="physician : ${physicianList}">
-                                <!--<td th:text="${admin.id}">Admin ID</td>-->
-                                <td th:text="${physician.firstName}">Name</td>
-                                <!--<td th:text="${admin.username}">Username</td>
-                                <td th:text="${admin.password}">Password</td>
-                                <td th:text="${admin.email}">Email</td>
-                                <td th:text="${admin.phone}">Phone</td>
-                                <td>
-                                    <a th:href="@{'/edit/' + ${admin.id}}" methods="PUT">Edit</a>
-                                </td>
-                                <td>
-                                    <a th:href="@{'/delete/' + ${admin.id}}">Delete</a>
-                                </td>-->
+                                <td th:text="${physician.id}">Physician ID</td>
+                                <td th:text="${physician.firstName} + ${physician.lastName}">Name</td>
+                                <td th:text="${physician.department}">Department</td>
+                                <td th:text="${physician.educationQualification}">Edu. Qualification</td>
+                                <td th:text="${physician.yearsOfExperience}">Experience/yr</td>
+                                <td th:text="${physician.state}">State</td>
+                                <td th:text="${physician.insurancePlan}">Insurance Plan</td>
                             </tr>
-
                             </tbody>
                         </table>
                     </div>
