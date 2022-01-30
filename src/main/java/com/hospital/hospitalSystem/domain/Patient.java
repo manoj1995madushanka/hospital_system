@@ -13,6 +13,7 @@ import java.sql.Date;
  * @author Manoj
  */
 @Entity
+@Table(name = "patient")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
