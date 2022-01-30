@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Physician</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+</head>
+<body>
+<div align="center">
+
+    <h1>Search Physicians</h1>
+    <br/>
+    <div class="col-sm-4">
+
+        <form action="#" th:action="@{/searchPhysicians}" th:object="${physician}" method="post">
+            <div alight="left">
+                <tr>
+                    <label class="form-label">Physician ID</label>
+                    <td>
+                        <input type="text" th:field="*{id}" class="form-control" placeholder="Physician ID"/>
+                    </td>
+                </tr>
+            </div>
+
+            <br>
+            <tr>
+                <td colspan="2">
+                    <button type="submit" class="btn btn-info">Search Physicians</button>
+                </td>
+            </tr>
+
+
+            <!--table that shows physician search results-->
+            <tr>
+                <div class="col-sm-5" align="center">
+                    <div class="panel-body" align="center">
+                        <table class="table">
+                            <thead class="thead-dark">
+                            <tr>
+                                <!--<th>Admin ID</th>-->
+                                <th>Name</th>
+                                <!--<th>Username</th>
+                                <th>Password</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Edit</th>
+                                <th>Delete</th>-->
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="physician : ${physicianList}">
+                                <!--<td th:text="${admin.id}">Admin ID</td>-->
+                                <td th:text="${physician.firstName}">Name</td>
+                                <!--<td th:text="${admin.username}">Username</td>
+                                <td th:text="${admin.password}">Password</td>
+                                <td th:text="${admin.email}">Email</td>
+                                <td th:text="${admin.phone}">Phone</td>
+                                <td>
+                                    <a th:href="@{'/edit/' + ${admin.id}}" methods="PUT">Edit</a>
+                                </td>
+                                <td>
+                                    <a th:href="@{'/delete/' + ${admin.id}}">Delete</a>
+                                </td>-->
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </tr>
+
+
+        </form>
+    </div>
+</div>
+</body>
+</html>
