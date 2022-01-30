@@ -17,6 +17,7 @@ public class PhysicianServiceImpl implements PhysicianService {
 
     @Override
     public void createPhysician(Physician physician) {
+        physician.setId("TEST");// this id will automatically set by sql trigger
         physicianRepository.save(physician);
     }
 }

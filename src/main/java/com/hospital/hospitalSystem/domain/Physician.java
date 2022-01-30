@@ -3,10 +3,9 @@ package com.hospital.hospitalSystem.domain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * DAO for Physician of hospital
@@ -19,6 +18,8 @@ import javax.persistence.Id;
 @Data
 public class Physician {
     @Id
+    //@GeneratedValue(generator="increment")
+    //@GenericGenerator(name="increment", strategy = "increment")
     @Column(name = "id")
     private String id;
     @Column(name = "firstName")

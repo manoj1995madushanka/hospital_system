@@ -3,8 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <title>Add Physician</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
 </head>
+
 <body>
 
+<!-- create navigation bar ( header) -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span> <span
+                    class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" th:href="@{/}">Hospital App</a>
+        </div>
+    </div>
+</nav>
+
+<br>
+<br>
+<!-- Create HTML registration form -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+
+            <!-- success message -->
+            <div th:if="${param.success}">
+                <div class="alert alert-info">The Physician successfully added!</div>
+            </div>
+
+            <h1>Enroll Patient</h1>
+
+            <form th:action="@{/addPhysician}" method="post" th:object="${physician}">
+
+                <div class="form-group">
+                    <label class="control-label" for="firstName"> First Name </label>
+                    <input id="firstName" class="form-control" th:field="*{firstName}"
+                           required autofocus="autofocus" />
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="lastName"> Last Name </label>
+                    <input id="lastName" class="form-control" th:field="*{lastName}"
+                           required autofocus="autofocus" />
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="department"> Department </label>
+                    <input id="department" class="form-control" th:field="*{department}"
+                           required autofocus="autofocus" />
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="educationQualification"> Education Qualification </label>
+                    <input id="educationQualification" class="form-control" th:field="*{educationQualification}"
+                           required autofocus="autofocus" />
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="yearsOfExperience"> Years of Experience </label>
+                    <input id="yearsOfExperience" class="form-control" th:field="*{yearsOfExperience}"
+                           required autofocus="autofocus" />
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="state"> State </label>
+                    <input id="state" class="form-control" th:field="*{state}"
+                           required autofocus="autofocus" />
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="insurancePlan"> Insurance Plan </label>
+                    <input id="insurancePlan" class="form-control" th:field="*{insurancePlan}"
+                           required autofocus="autofocus" />
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Enroll</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
+
 </html>
