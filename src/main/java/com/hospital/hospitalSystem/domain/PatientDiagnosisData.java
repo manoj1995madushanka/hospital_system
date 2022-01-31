@@ -22,14 +22,14 @@ public class PatientDiagnosisData {
     @Column(name = "diagnosisId")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer diagnosisId;
-    @Column(name = "patientId")
-    private Integer patientId;
+   /* @Column(name = "patientId")
+    private Integer patientId;*/
     @Column(name = "symptoms")
     private String symptoms; // represent the symptoms of the patient
     @Column(name = "diagnosisProvided")
     private String diagnosisProvided; // represents the diagnosis provided for the patient
-    @Column(name = "administeredBy")
-    private String administeredBy; // represents the doctor who had visited the patient
+  //  @Column(name = "administeredBy")
+   // private String administeredBy; // represents the doctor who had visited the patient
     @Column(name = "dateOfDiagnosis")
     private Date dateOfDiagnosis; // date of diagnosis of the patient
     @Column(name = "followUpRequired")
@@ -42,4 +42,12 @@ public class PatientDiagnosisData {
     private Integer cardNumber;
     @Column(name = "modeOfPayment")
     private String modeOfPayment;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "patient_id")
+    private Patient patient;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "administered_by")
+    private Physician physician;
 }

@@ -15,7 +15,7 @@
     <br/>
     <div class="container">
 
-        <form action="#" th:action="@{/getPatientHistory}" th:object="${patientHistory}" method="post">
+       <form action="#" th:action="@{/viewPatientHistory}" th:object="${patient}" method="post">
             <div alight="left">
                 <tr>
                     <td>
@@ -54,7 +54,7 @@
 
                             <tbody>
                             <tr th:each="patientHistory : ${patientHistories}">
-                                <td th:text="${patientHistory.symptoms}">Name</td>
+                                <td th:text="${patientHistory.name}">Name</td>
                                 <td th:text="${patientHistory.symptoms}">Symptoms</td>
                                 <td th:text="${patientHistory.diagnosisProvided}">Diagnosis Provided</td>
                                 <td th:text="${patientHistory.administeredBy}">Physician</td>
