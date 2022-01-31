@@ -9,7 +9,7 @@ import com.hospital.hospitalSystem.dto.PatientHistory;
 import java.util.List;
 
 public interface PatientDiagnosisDataService {
-    void createDiagnosisData(DiagnosisData diagnosisData);
+    String createDiagnosisData(DiagnosisData diagnosisData);
 
     List<PatientHistory> searchPatientHistories(Patient patient);
 }

@@ -18,6 +18,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
+import static com.hospital.hospitalSystem.util.CommonStrings.SUCCESS;
+
 /**
  * contains service operations of patient diagnosis data related functionalities
  *
@@ -37,15 +39,16 @@ public class PatientDiagnosisDataServiceImpl implements PatientDiagnosisDataServ
      * save diagnosis data to the db
      */
     @Override
-    public void createDiagnosisData(DiagnosisData diagnosisData) {
+    public String createDiagnosisData(DiagnosisData diagnosisData) {
 
         PatientDiagnosisData patientDiagnosisData = null;
         try {
             patientDiagnosisData = mapDiagnosisDataDao(diagnosisData);
         } catch (Exception e) {
-
+            return e.getMessage();
         }
         patientDiagnosisDataRepository.save(patientDiagnosisData);
+        return SUCCESS;
     }
 
     /**

@@ -56,6 +56,9 @@
             <div th:if="${param.success}">
                 <div class="alert alert-info">The Patient Diagnosis Data SuccessFully Saved!</div>
             </div>
+            <div th:if="${param.error}">
+                <div class="alert alert-danger">Provided patient or physician not exist!</div>
+            </div>
 
             <h1>Add Diagnosis Data</h1>
 

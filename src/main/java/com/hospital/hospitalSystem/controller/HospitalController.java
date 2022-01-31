@@ -16,6 +16,8 @@ import com.hospital.hospitalSystem.domain.Admin;
 
 import java.util.List;
 
+import static com.hospital.hospitalSystem.util.CommonStrings.SUCCESS;
+
 /**
  * contains controller endpoint methods of Hospital application
  * @author Manoj
@@ -144,8 +146,14 @@ public class HospitalController {
      * */
     @RequestMapping(value = "/addDiagnosisData", method = RequestMethod.POST)
     public String addDiagnosticData(@ModelAttribute("diagnosisData") DiagnosisData diagnosisData) {
-        patientDiagnosisDataService.createDiagnosisData(diagnosisData);
-        return "redirect:/addDiagnosisData?success";
+        String response = patientDiagnosisDataService.createDiagnosisData(diagnosisData);
+        if (response.equals(SUCCESS)) {
+            return "redirect:/addDiagnosisData?success";
+        }
+        else
+        {
+            return "redirect:/addDiagnosisData?error";
+        }
     }
 
     /**
