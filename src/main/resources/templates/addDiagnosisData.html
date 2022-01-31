@@ -22,7 +22,19 @@
                     class="icon-bar"></span> <span class="icon-bar"></span> <span
                     class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#" th:href="@{/}">Hospital App</a>
+            <a class="navbar-brand" href="#" th:href="@{/}">AB Hospital</a>
+        </div>
+
+        <div id="enrollPatient" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/enrollPatient}">Enroll Patient</a></li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/addPhysician}">Add Physician</a></li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/addDiagnosisData}">Add Diagnosis</a></li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/searchPhysicians}">Search Physicians</a></li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/viewPatientHistory}">Patient History</a></li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/registration}">New Admin</a></li>
+                <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+            </ul>
         </div>
     </div>
 </nav>
