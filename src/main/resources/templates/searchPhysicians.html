@@ -48,11 +48,14 @@
     <div class="container">
 
         <form action="#" th:action="@{/searchPhysicians}" th:object="${physician}" method="post">
+
             <div alight="left">
                 <tr>
                     <td>
                         <input type="text" th:field="*{department}" class="form-control" placeholder="Department"/>
+                        <br>
                         <input type="text" th:field="*{state}" class="form-control" placeholder="State"/>
+                        <br>
                         <input type="text" th:field="*{insurancePlan}" class="form-control"
                                placeholder="Insurance Plan"/>
                     </td>
@@ -63,6 +66,7 @@
             <tr>
                 <td colspan="2">
                     <button type="submit" class="btn btn-info">Search Physicians</button>
+                    <input class="btn btn-danger" type="reset" value="Reset">
                 </td>
             </tr>
 
