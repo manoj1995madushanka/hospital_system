@@ -15,7 +15,7 @@ import java.util.Optional;
 public interface PhysicianRepository extends JpaRepository<Physician,String> {
 
 
-    @Query(value = "SELECT * FROM PHYSICIAN WHERE (?1 IS NULL OR department = ?1) AND (?1 IS NULL OR state = ?1)" +
-            " AND (?1 IS NULL OR insurance_plan = ?1)",nativeQuery = true)
+    @Query(value = "SELECT * FROM PHYSICIAN WHERE (?1 IS NULL OR department = ?1) AND (?2 IS NULL OR state = ?2)" +
+            " AND (?3 IS NULL OR insurance_plan = ?3)",nativeQuery = true)
     Optional<List<Physician>> searchPhysicians(String department, String state, String insurancePlan);
 }

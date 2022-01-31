@@ -145,7 +145,7 @@ public class HospitalController {
     @RequestMapping(value = "/addDiagnosisData", method = RequestMethod.POST)
     public String addDiagnosticData(@ModelAttribute("diagnosisData") DiagnosisData diagnosisData) {
         patientDiagnosisDataService.createDiagnosisData(diagnosisData);
-        return "redirect:/";
+        return "redirect:/addDiagnosisData?success";
     }
 
     /**
