@@ -2,9 +2,11 @@ package com.hospital.hospitalSystem.dto;
 
 import lombok.Data;
 
-import javax.persistence.Column;
 import java.sql.Date;
 
+/**
+ * represent patient diagnosis data endpoint return dto
+ * */
 @Data
 public class DiagnosisData {
     private Integer patientId;

@@ -1,7 +1,8 @@
-package com.hospital.hospitalSystem.service;
+package com.hospital.hospitalSystem.service.impl;
 
 import com.hospital.hospitalSystem.domain.Physician;
 import com.hospital.hospitalSystem.repository.PhysicianRepository;
+import com.hospital.hospitalSystem.service.PhysicianService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

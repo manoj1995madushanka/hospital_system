@@ -1,7 +1,8 @@
-package com.hospital.hospitalSystem.service;
+package com.hospital.hospitalSystem.service.impl;
 
 import com.hospital.hospitalSystem.domain.Patient;
 import com.hospital.hospitalSystem.repository.PatientRepository;
+import com.hospital.hospitalSystem.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Service;
  * @author Manoj
  */
 @Service
-public class PatientServiceImpl implements PatientService{
+public class PatientServiceImpl implements PatientService {
     @Autowired
     private PatientRepository patientRepository;
 

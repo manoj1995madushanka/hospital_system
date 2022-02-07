@@ -1,11 +1,11 @@
 package com.hospital.hospitalSystem.controller;
 
 import com.hospital.hospitalSystem.domain.Patient;
-import com.hospital.hospitalSystem.domain.PatientDiagnosisData;
 import com.hospital.hospitalSystem.domain.Physician;
 import com.hospital.hospitalSystem.dto.DiagnosisData;
 import com.hospital.hospitalSystem.dto.PatientHistory;
 import com.hospital.hospitalSystem.service.*;
+import com.hospital.hospitalSystem.service.impl.AdminServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,41 +44,6 @@ public class HospitalController {
     public String home() {
         return "index";
     }
-
-	/*@RequestMapping(value = "/", method = RequestMethod.GET)
-    public String viewHomePage(Model model) {
-        List<Admin> adminList = adminService.getAllAdmins();
-        model.addAttribute("adminList", adminList);
-        return "index";
-    }
- 
-	
-    @RequestMapping(value = "/newAdmin", method = RequestMethod.GET)
-    public String add(Model model) {
-        model.addAttribute("admin", new Admin());
-        return "createAdmin";
-    }
- 
-    @RequestMapping(value = "/createAdmin", method = RequestMethod.POST)
-    public String createAdmin(@ModelAttribute("admin") Admin admin) {
-    	adminService.createAdmin(admin);
-        return "redirect:/";
-    }
- 
-    @RequestMapping(value = "/edit/{id}")
-    public ModelAndView showEditAdminPage(@PathVariable(name = "id") int id) {
-        ModelAndView mav = new ModelAndView("createAdmin");
-        Admin admin = adminService.getAdminById(id);
-        mav.addObject("admin", admin);
-        return mav;
-        
-    }
-    
-    @RequestMapping(value = "/delete/{id}")
-    public String deleteAdminById(@PathVariable(name = "id") int id) {
-    	adminService.deleteAdminById(id);
-        return "redirect:/";
-    }*/
 
 
     /**
@@ -135,7 +100,7 @@ public class HospitalController {
      * patient diagnostic details operations
      *
      * */
-    @RequestMapping(value = "/addDiagnosisData", method = RequestMethod.GET)
+    @GetMapping(value = "/addDiagnosisData")
     public String addDiagnosisData(Model model) {
         model.addAttribute("diagnosisData", new DiagnosisData());
         return "addDiagnosisData";
@@ -144,7 +109,7 @@ public class HospitalController {
     /*
      * save new patient details
      * */
-    @RequestMapping(value = "/addDiagnosisData", method = RequestMethod.POST)
+    @PostMapping(value = "/addDiagnosisData")
     public String addDiagnosticData(@ModelAttribute("diagnosisData") DiagnosisData diagnosisData) {
         String response = patientDiagnosisDataService.createDiagnosisData(diagnosisData);
         if (response.equals(SUCCESS)) {

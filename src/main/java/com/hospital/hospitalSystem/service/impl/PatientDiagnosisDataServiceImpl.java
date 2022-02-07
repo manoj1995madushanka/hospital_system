@@ -1,4 +1,4 @@
-package com.hospital.hospitalSystem.service;
+package com.hospital.hospitalSystem.service.impl;
 
 import com.hospital.hospitalSystem.domain.Patient;
 import com.hospital.hospitalSystem.domain.PatientDiagnosisData;
@@ -8,6 +8,7 @@ import com.hospital.hospitalSystem.dto.PatientHistory;
 import com.hospital.hospitalSystem.repository.PatientDiagnosisDataRepository;
 import com.hospital.hospitalSystem.repository.PatientRepository;
 import com.hospital.hospitalSystem.repository.PhysicianRepository;
+import com.hospital.hospitalSystem.service.PatientDiagnosisDataService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

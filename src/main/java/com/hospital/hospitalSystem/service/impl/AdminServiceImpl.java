@@ -1,4 +1,4 @@
-package com.hospital.hospitalSystem.service;
+package com.hospital.hospitalSystem.service.impl;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -7,6 +7,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.hospital.hospitalSystem.domain.Role;
+import com.hospital.hospitalSystem.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
